@@ -1,4 +1,4 @@
-1//
+/* 1//
 let numero = prompt("1. Ingresa un número:");
 numero = Number(numero);
 
@@ -241,8 +241,8 @@ do {
 } while (nombre.toLowerCase() !== "salir");
 
 //16.
-let num1 = Math.floor(Math.random() * 10);
-let num2 = Math.floor(Math.random() * 1000);
+///let num1 = Math.floor(Math.random() * 10);
+//(let num2 = Math.floor(Math.random() * 1000);
 let respuestaCorrecta = num1 * num2;
 let respuestaUsuario;
 
@@ -258,4 +258,16 @@ do {
         respuestaCorrecta = num1 * num2;
     }
 } while (true);
+
+ */
+
+
+// ejrcicio extra
+// Creamos un array con 8 frutas
+let frutas = ["Manzana", "Banano", "Uva", "Mango", "Fresa", "Pera", "Sandía", "Kiwi"];
+
+// Recorremos el array con un ciclo for
+for (let i = 0; i < frutas.length; i++) {
+  console.log((i + 1) + ". " + frutas[i]);
+}
 
