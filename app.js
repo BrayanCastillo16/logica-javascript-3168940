@@ -1,48 +1,30 @@
-//seleciona los elementos con los que va a interractuar o los que responden a la interaccion
+const form = document.getElementById('miFormulario');
 
-const pantalla = document.querySelector(".pantalla")
-const btnMenos= document.querySelector(".btn-Menos")
-const btnMas = document.querySelector(".btn-Mas")
- let counter = 0
-//2. funcion
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-function incrementar () {
-counter++
-pantalla.textContent = counter
-if (counter >= 10 && counter < 30 ) {
-  pantalla.style.color = "red"
-}
+    const nameInput = document.getElementById('nombre');
+    const colorSelect = document.getElementById('opcion');
+    const animalRadio = document.querySelector('input[name="radioOpcion"]:checked');
+    const confirmationMessage = document.getElementById('mensajeConfirmacion');
 
-if(counter >= 30) {
-  pantalla.style.color = "green"
-  document.body.style.backgroundcolor = "grey"
+    if (!animalRadio) {
+        alert('Por favor, selecciona un animal.');
+        return;
+    }
 
-}
-}
+    const userData = {
+        name: nameInput.value,
+        color: colorSelect.value,
+        animal: animalRadio.value
+    };
 
-function decrementar () {
-if (counter <= 0) 
- return counter = 0
+    console.log(userData);
 
-counter--
-pantalla.textContent = counter
-if (counter < 10 ) {
-  pantalla.style.color = "black"
-    
- }
+    // Muestra el mensaje de confirmación
+    confirmationMessage.textContent = '¡Formulario enviado con éxito!';
+    confirmationMessage.style.display = 'block';
 
-
-
-  if (counter >= 10 && counter < 30) {
-    pantalla.style.color = "red"
-    document.body.style.backgroundcolor = "white"
-  
- } 
-}
-
-
-//3. crear eñ evento
-
-btnMas.addEventListener("click", incrementar)
-btnMenos.addEventListener("click", decrementar)
-
+    // Opcional: Limpia los campos del formulario
+    form.reset();
+});
